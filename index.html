@@ -97,6 +97,61 @@ button{
 .leaflet-control-zoom a{background:#fff!important;color:#25323b!important;border-color:#d5dde2!important} .leaflet-control-zoom a:hover{background:#f2f6f8!important} .leaflet-control-attribution{background:rgba(255,255,255,.88)!important;color:#6d7780!important} .leaflet-control-attribution a{color:#476b84!important} .leaflet-tooltip{background:#ffffff;color:#17212b;border:1px solid #cad4da;box-shadow:0 8px 24px rgba(31,49,62,.16);border-radius:8px;padding:9px 10px} .leaflet-tooltip:before{border-top-color:#cad4da} .tt-title{font-weight:800;font-size:12px;margin-bottom:4px} .tt-line{font-size:9.5px;color:#667481;line-height:1.55} .tt-strong{color:#17212b;font-weight:750} .tt-heat{color:#704900;font-weight:800}
 @media(max-width:1180px){.cards .card:nth-child(3),.cards .card:nth-child(4){display:none} .main{grid-template-columns:300px 1fr} .legend,.map-caption{left:316px} .detail{width:320px}}
 @media(max-width:790px){body{overflow:auto} .app{height:auto;min-height:100vh} .topbar{flex-wrap:wrap} .brand{min-width:0} .cards{order:3;width:100%;justify-content:stretch} .card{flex:1;min-width:0} .controls{width:100%;order:2} .controls input{flex:1;width:auto;min-width:180px} .main{height:calc(100vh - 180px);grid-template-columns:1fr} .sidebar{display:none} .legend,.map-caption{left:12px} .map-caption{top:72px;transform:none} .detail{right:10px;top:10px;width:calc(100% - 20px)} .maptools{right:10px;top:10px}}
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px){
+
+  .topbar{
+    padding:8px 10px;
+    gap:6px;
+    align-items:stretch;
+  }
+
+  .brand{
+    width:100%;
+    min-width:0;
+  }
+
+  .cards{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
+  }
+
+  .card{
+    min-width:0;
+    padding:7px 9px;
+  }
+
+  .controls{
+    width:100%;
+    min-width:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+  }
+
+  .controls input{
+    width:100%;
+    min-width:0;
+    grid-column:1 / -1;
+  }
+
+  .controls select{
+    width:100%;
+    min-width:0;
+    max-width:none;
+  }
+
+  .controls button{
+    width:100%;
+  }
+
+  .map{
+    min-height:55vh;
+  }
+
+}
 </style>
 </head>
 <body>
