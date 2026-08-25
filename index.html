@@ -105,7 +105,11 @@ button{
     gap:6px;
     align-items:stretch;
   }
-
+  .sidebar{
+    width:100%;
+    max-height:40vh;
+    overflow:auto;
+  }
   .brand{
     width:100%;
     min-width:0;
@@ -150,6 +154,15 @@ button{
   .map{
     min-height:55vh;
   }
+  #map{
+    height:60vh;
+    min-height:420px;
+  }
+}
+.map-layout,
+.main{
+    grid-template-columns:1fr;
+}
 
 }
 </style>
