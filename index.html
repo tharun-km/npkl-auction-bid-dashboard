@@ -508,6 +508,7 @@ function renderList(){
     list.appendChild(div);
   });
 }
+  
 ['search','roundFilter','blockFilter','eligibilityFilter','sizeFilter'].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener(el.tagName==='INPUT'?'input':'change',renderList);
