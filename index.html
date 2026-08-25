@@ -12,18 +12,8 @@
   --green:#168a4a;--green-bg:#eaf7ef;--red:#c63d3d;--red-bg:#fceeee;--gray:#68737d;--gray-bg:#eef1f3;
   --gold:#9a6800;--gold-bg:#fff7df;--blue:#2e6fa3;--shadow:0 8px 28px rgba(24,42,56,.10)
 }
-
-*{box-sizing:border-box}
-html,body{
-  height:100%;
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
-}
-body{overflow:hidden}
+*{box-sizing:border-box} html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif} body{overflow:hidden}
 .app{height:100vh;display:grid;grid-template-rows:auto 1fr}
-
 .topbar{
   position:relative;
   z-index:1200;
@@ -36,29 +26,13 @@ body{overflow:hidden}
   flex-wrap:wrap;
   box-shadow:0 1px 10px rgba(31,49,62,.05);
 }
-
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
   flex:0 0 auto;
   min-width:220px;
-}
-.mark{
-  width:34px;
-  height:34px;
-  border:1px solid #b7d2c2;
-  border-radius:8px;
-  display:grid;
-  place-items:center;
-  color:var(--green);
-  font-weight:800;
-  font-size:11px;
-  background:var(--green-bg)
-}
-h1{font-size:15px;margin:0;letter-spacing:.1px}
-.sub{font-size:10px;color:var(--muted);margin-top:2px}
-
+} .mark{width:34px;height:34px;border:1px solid #b7d2c2;border-radius:8px;display:grid;place-items:center;color:var(--green);font-weight:800;font-size:11px;background:var(--green-bg)} h1{font-size:15px;margin:0;letter-spacing:.1px} .sub{font-size:10px;color:var(--muted);margin-top:2px}
 .cards{
   display:flex;
   gap:6px;
@@ -73,17 +47,7 @@ h1{font-size:15px;margin:0;letter-spacing:.1px}
   border:1px solid var(--line);
   background:linear-gradient(180deg,#fff,#f8fafb);
   border-radius:8px;
-}
-.label{
-  font-size:8px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:var(--muted)
-}
-.value{font-size:16px;font-weight:760;margin-top:3px}
-.value.green{color:var(--green)}
-.value.gold{color:var(--gold)}
-
+}.label{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)} .value{font-size:16px;font-weight:760;margin-top:3px} .value.green{color:var(--green)} .value.gold{color:var(--gold)}
 .controls{
   display:flex;
   gap:6px;
@@ -124,277 +88,13 @@ button{
   padding:8px 10px;
   cursor:pointer;
 }
-
-.main{
-  min-height:0;
-  display:grid;
-  grid-template-columns:340px 1fr;
-  position:relative
-}
-
-#map{
-  height:100%;
-  width:100%;
-  background:#e5e9ec;
-  outline:none
-}
-
-.sidebar{
-  background:rgba(255,255,255,.98);
-  border-right:1px solid var(--line);
-  display:flex;
-  flex-direction:column;
-  min-height:0;
-  z-index:900
-}
-.sidehead{
-  padding:13px 14px;
-  border-bottom:1px solid var(--line)
-}
-.sidehead h2{
-  font-size:11px;
-  margin:0 0 5px;
-  text-transform:uppercase;
-  letter-spacing:1px
-}
-.sidehead p{
-  margin:0;
-  font-size:10px;
-  color:var(--muted);
-  line-height:1.5
-}
-.list{overflow:auto;padding:8px}
-.item{
-  padding:9px 10px;
-  margin-bottom:6px;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:7px;
-  cursor:pointer;
-  transition:.12s
-}
-.item:hover{
-  border-color:#a9bbc7;
-  background:#f9fbfc;
-  transform:translateX(1px)
-}
-.itemrow{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  align-items:center
-}
-.site{font-weight:750;font-size:11px}
-.status{
-  font-size:8px;
-  letter-spacing:.7px;
-  font-weight:800;
-  padding:3px 6px;
-  border-radius:9px;
-  white-space:nowrap
-}
-.status.fit{color:var(--green);background:var(--green-bg)}
-.status.small{color:var(--gray);background:var(--gray-bg)}
-.status.over{color:var(--red);background:var(--red-bg)}
-.meta{
-  font-size:9.5px;
-  color:var(--muted);
-  margin-top:4px;
-  line-height:1.45
-}
-.item.fit{border-left:3px solid var(--green)}
-
-.maptools{
-  position:absolute;
-  right:16px;
-  top:16px;
-  z-index:950;
-  display:flex;
-  gap:4px;
-  background:rgba(255,255,255,.95);
-  border:1px solid var(--line);
-  border-radius:9px;
-  padding:4px;
-  box-shadow:var(--shadow)
-}
-.maptools button{
-  font-size:10px;
-  padding:7px 9px;
-  border:0;
-  border-radius:6px;
-  background:transparent
-}
-.maptools button.active{
-  background:#edf4f8;
-  color:#245d84;
-  font-weight:750
-}
-
-.legend{
-  position:absolute;
-  left:356px;
-  bottom:18px;
-  z-index:800;
-  background:rgba(255,255,255,.96);
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:9px 11px;
-  font-size:9px;
-  box-shadow:var(--shadow)
-}
-.legend-row{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin:4px 0
-}
-.dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  box-shadow:0 0 0 2px #ffffff
-}
-.dot.g{background:var(--green)}
-.dot.r{background:var(--red)}
-.dot.s{background:var(--gray)}
-
-.detail{
-  position:absolute;
-  right:16px;
-  top:16px;
-  width:350px;
-  z-index:980;
-  background:rgba(255,255,255,.98);
-  border:1px solid var(--line);
-  border-radius:10px;
-  box-shadow:0 14px 45px rgba(31,49,62,.16);
-  display:none
-}
-.detail.show{display:block}
-.detailhead{
-  padding:12px 14px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start
-}
-.detail h3{font-size:14px;margin:0}
-.detailbody{padding:13px 14px}
-.bigstatus{
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.9px;
-  margin-bottom:10px
-}
-.bigstatus.fit{color:var(--green)}
-.bigstatus.small{color:var(--gray)}
-.bigstatus.over{color:var(--red)}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px
-}
-.metric{
-  background:#f8fafb;
-  border:1px solid var(--line);
-  border-radius:7px;
-  padding:8px
-}
-.metric .k{
-  font-size:8px;
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:.65px
-}
-.metric .v{
-  font-size:11.5px;
-  font-weight:760;
-  margin-top:3px
-}
-.heat{
-  margin-top:9px;
-  padding:9px 10px;
-  background:#fff6e4;
-  border:1px solid #ecd49b;
-  border-radius:7px
-}
-.heat .k{
-  font-size:8px;
-  color:#866000;
-  text-transform:uppercase;
-  letter-spacing:.7px
-}
-.heat .v{
-  font-size:13px;
-  font-weight:800;
-  color:#704900;
-  margin-top:3px
-}
-.note{
-  font-size:9.5px;
-  line-height:1.5;
-  color:var(--muted);
-  margin-top:9px
-}
-.mapbtn{
-  display:block;
-  text-align:center;
-  text-decoration:none;
-  color:#fff;
-  background:#167449;
-  font-weight:800;
-  font-size:10px;
-  border-radius:7px;
-  padding:9px;
-  margin-top:11px
-}
-.close{
-  background:transparent;
-  border:0;
-  color:var(--muted);
-  font-size:18px;
-  padding:0 2px
-}
-
-.leaflet-control-zoom a{
-  background:#fff!important;
-  color:#25323b!important;
-  border-color:#d5dde2!important
-}
-.leaflet-control-zoom a:hover{background:#f2f6f8!important}
-.leaflet-control-attribution{
-  background:rgba(255,255,255,.88)!important;
-  color:#6d7780!important
-}
-.leaflet-control-attribution a{color:#476b84!important}
-.leaflet-tooltip{
-  background:#ffffff;
-  color:#17212b;
-  border:1px solid #cad4da;
-  box-shadow:0 8px 24px rgba(31,49,62,.16);
-  border-radius:8px;
-  padding:9px 10px
-}
-.leaflet-tooltip:before{border-top-color:#cad4da}
-.tt-title{font-weight:800;font-size:12px;margin-bottom:4px}
-.tt-line{font-size:9.5px;color:#667481;line-height:1.55}
-.tt-strong{color:#17212b;font-weight:750}
-.tt-heat{color:#704900;font-weight:800}
-
-/* Responsive refinements */
-.mobile-filter-toggle{
-  display:none;
-  border:1px solid var(--line);
-  background:#fff;
-  color:var(--text);
-  border-radius:7px;
-  padding:8px 10px;
-  font-weight:750;
-  font-size:11px;
-  align-items:center;
-  justify-content:space-between
-}
-.mobile-filter-toggle span{font-size:13px;line-height:1}
+.main{min-height:0;display:grid;grid-template-columns:340px 1fr;position:relative} #map{height:100%;width:100%;background:#e5e9ec;outline:none}
+.sidebar{background:rgba(255,255,255,.98);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;z-index:900} .sidehead{padding:13px 14px;border-bottom:1px solid var(--line)} .sidehead h2{font-size:11px;margin:0 0 5px;text-transform:uppercase;letter-spacing:1px} .sidehead p{margin:0;font-size:10px;color:var(--muted);line-height:1.5} .list{overflow:auto;padding:8px} .item{padding:9px 10px;margin-bottom:6px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;transition:.12s} .item:hover{border-color:#a9bbc7;background:#f9fbfc;transform:translateX(1px)} .itemrow{display:flex;justify-content:space-between;gap:8px;align-items:center} .site{font-weight:750;font-size:11px} .status{font-size:8px;letter-spacing:.7px;font-weight:800;padding:3px 6px;border-radius:9px;white-space:nowrap} .status.fit{color:var(--green);background:var(--green-bg)} .status.small{color:var(--gray);background:var(--gray-bg)} .status.over{color:var(--red);background:var(--red-bg)} .meta{font-size:9.5px;color:var(--muted);margin-top:4px;line-height:1.45} .item.fit{border-left:3px solid var(--green)}
+.maptools{position:absolute;right:16px;top:16px;z-index:950;display:flex;gap:4px;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:9px;padding:4px;box-shadow:var(--shadow)} .maptools button{font-size:10px;padding:7px 9px;border:0;border-radius:6px;background:transparent} .maptools button.active{background:#edf4f8;color:#245d84;font-weight:750}
+.legend{position:absolute;left:356px;bottom:18px;z-index:800;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:9px;box-shadow:var(--shadow)} .legend-row{display:flex;align-items:center;gap:7px;margin:4px 0} .dot{width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 2px #ffffff} .dot.g{background:var(--green)} .dot.r{background:var(--red)} .dot.s{background:var(--gray)}
+.detail{position:absolute;right:16px;top:16px;width:350px;z-index:980;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 45px rgba(31,49,62,.16);display:none} .detail.show{display:block} .detailhead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start} .detail h3{font-size:14px;margin:0} .detailbody{padding:13px 14px} .bigstatus{font-size:10px;font-weight:800;letter-spacing:.9px;margin-bottom:10px} .bigstatus.fit{color:var(--green)} .bigstatus.small{color:var(--gray)} .bigstatus.over{color:var(--red)} .grid{display:grid;grid-template-columns:1fr 1fr;gap:7px} .metric{background:#f8fafb;border:1px solid var(--line);border-radius:7px;padding:8px} .metric .k{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.65px} .metric .v{font-size:11.5px;font-weight:760;margin-top:3px} .heat{margin-top:9px;padding:9px 10px;background:#fff6e4;border:1px solid #ecd49b;border-radius:7px} .heat .k{font-size:8px;color:#866000;text-transform:uppercase;letter-spacing:.7px} .heat .v{font-size:13px;font-weight:800;color:#704900;margin-top:3px} .note{font-size:9.5px;line-height:1.5;color:var(--muted);margin-top:9px} .mapbtn{display:block;text-align:center;text-decoration:none;color:#fff;background:#167449;font-weight:800;font-size:10px;border-radius:7px;padding:9px;margin-top:11px} .close{background:transparent;border:0;color:var(--muted);font-size:18px;padding:0 2px}
+.map-caption{position:absolute;left:356px;top:16px;z-index:840;transform:translateY(54px);background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:7px;padding:6px 8px;font-size:8.5px;color:var(--muted);box-shadow:var(--shadow)}
+.leaflet-control-zoom a{background:#fff!important;color:#25323b!important;border-color:#d5dde2!important} .leaflet-control-zoom a:hover{background:#f2f6f8!important} .leaflet-control-attribution{background:rgba(255,255,255,.88)!important;color:#6d7780!important} .leaflet-control-attribution a{color:#476b84!important} .leaflet-tooltip{background:#ffffff;color:#17212b;border:1px solid #cad4da;box-shadow:0 8px 24px rgba(31,49,62,.16);border-radius:8px;padding:9px 10px} .leaflet-tooltip:before{border-top-color:#cad4da} .tt-title{font-weight:800;font-size:12px;margin-bottom:4px} .tt-line{font-size:9.5px;color:#667481;line-height:1.55} .tt-strong{color:#17212b;font-weight:750} .tt-heat{color:#704900;font-weight:800}
 
 @media (max-width:1180px){
   .brand{min-width:205px}
@@ -402,7 +102,7 @@ button{
   .controls{flex-basis:620px}
   .controls input{min-width:170px}
   .main{grid-template-columns:300px 1fr}
-  .legend{left:316px}
+  .legend,.map-caption{left:316px}
   .detail{width:320px}
 }
 
@@ -411,31 +111,32 @@ button{
     display:grid;
     grid-template-columns:1fr;
     gap:8px;
-    padding:10px 12px
+    padding:10px 12px;
   }
   .brand{width:100%;min-width:0}
   .cards{
     width:100%;
     display:grid;
     grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:6px
+    gap:6px;
   }
   .card{min-width:0}
   .controls{
     width:100%;
     display:grid;
     grid-template-columns:minmax(180px,1.4fr) repeat(4,minmax(130px,1fr)) auto;
-    gap:6px
+    gap:6px;
+    align-items:stretch;
   }
   .controls input,
   .controls select,
   .controls button{
     width:100%;
     min-width:0;
-    max-width:none
+    max-width:none;
   }
   .main{grid-template-columns:280px 1fr}
-  .legend{left:296px}
+  .legend,.map-caption{left:296px}
 }
 
 @media (max-width:760px){
@@ -445,178 +146,177 @@ button{
     height:auto;
     min-height:100dvh;
     display:flex;
-    flex-direction:column
+    flex-direction:column;
   }
+
   .topbar{
+    position:relative;
     display:flex;
     flex-direction:column;
     align-items:stretch;
     gap:7px;
-    padding:8px 10px
+    padding:8px 10px;
   }
-  .brand{width:100%;min-width:0;gap:8px}
+
+  .brand{
+    width:100%;
+    min-width:0;
+    gap:8px;
+  }
   .mark{width:32px;height:32px}
   h1{font-size:14px}
   .sub{font-size:9px}
 
-  .mobile-filter-toggle{
-    display:flex;
-    width:100%
+  .cards{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
   }
+  .card{
+    min-width:0;
+    padding:7px 9px;
+  }
+  .label{font-size:7.5px}
+  .value{font-size:15px}
 
   .controls{
     width:100%;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:6px;
-    overflow:hidden;
-    max-height:500px;
-    opacity:1;
-    transition:max-height .2s ease,opacity .15s ease,margin .2s ease
-  }
-  .controls.collapsed{
-    max-height:0;
-    opacity:0;
-    margin:0;
-    pointer-events:none
+    align-items:stretch;
   }
   .controls input{
     grid-column:1 / -1;
     width:100%;
-    min-width:0
+    min-width:0;
   }
   .controls select,
   .controls button{
     width:100%;
     min-width:0;
-    max-width:none
+    max-width:none;
   }
-
-  .cards{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:6px
-  }
-  .card{min-width:0;padding:7px 9px}
-  .label{font-size:7.5px}
-  .value{font-size:15px}
 
   .main{
     width:100%;
     height:auto;
     min-height:0;
     display:block;
-    position:relative
+    position:relative;
   }
 
   #map{
     width:100%;
-    height:calc(100dvh - 285px);
-    min-height:500px
+    height:calc(100dvh - 270px);
+    min-height:480px;
   }
 
-  .sidebar{display:none}
+  .sidebar{
+    display:none;
+  }
 
   .maptools{
     top:10px;
-    left:10px;
     right:10px;
-    width:auto;
-    justify-content:space-between;
-    overflow:hidden
+    max-width:calc(100% - 20px);
+    overflow-x:auto;
   }
   .maptools button{
     white-space:nowrap;
-    flex:1 1 0
+    flex:0 0 auto;
   }
 
   .legend{
     left:10px;
     bottom:10px;
-    max-width:180px
+    max-width:180px;
   }
 
-  /* Desktop detail card becomes a bottom sheet only on mobile */
+  .map-caption{
+    left:10px;
+    top:10px;
+    transform:translateY(48px);
+    max-width:calc(100% - 20px);
+    font-size:8px;
+  }
+
   .detail{
-    position:fixed;
-    left:0;
-    right:0;
-    top:auto;
-    bottom:0;
-    width:100%;
+    left:10px;
+    right:10px;
+    top:10px;
+    width:auto;
     max-width:none;
-    border-radius:16px 16px 0 0;
-    border-left:0;
-    border-right:0;
-    border-bottom:0;
-    box-shadow:0 -10px 35px rgba(31,49,62,.18);
-    max-height:72dvh;
+    max-height:calc(100dvh - 20px);
     overflow:auto;
-    transform:translateY(105%);
-    opacity:0;
-    pointer-events:none;
-    transition:transform .22s ease,opacity .18s ease
   }
 
-  .detail.show{
-    display:block;
-    transform:translateY(0);
-    opacity:1;
-    pointer-events:auto
-  }
-
-  .detailhead{
-    position:sticky;
-    top:0;
-    z-index:2;
-    background:rgba(255,255,255,.98)
-  }
-
-  .close{
-    width:36px;
-    height:36px;
-    display:grid;
-    place-items:center;
-    border:1px solid var(--line);
-    border-radius:8px;
-    background:#fff
-  }
+  .detailbody{padding:11px 12px}
+  .grid{grid-template-columns:1fr 1fr;gap:6px}
 }
 
 @media (max-width:420px){
-  .controls{grid-template-columns:1fr}
-  .controls input{grid-column:auto}
-  #map{
-    height:calc(100dvh - 395px);
-    min-height:460px
+  .cards{grid-template-columns:1fr 1fr}
+  .card{padding:6px 8px}
+  .label{font-size:7px}
+  .value{font-size:14px}
+
+  .controls{
+    grid-template-columns:1fr;
   }
-  .maptools button{font-size:9px;padding:7px 6px}
-  .grid{grid-template-columns:1fr}
+  .controls input{
+    grid-column:auto;
+  }
+
+  #map{
+    height:calc(100dvh - 360px);
+    min-height:440px;
+  }
+
+  .maptools{
+    left:10px;
+    right:10px;
+    width:auto;
+    justify-content:space-between;
+  }
+
+  .maptools button{
+    flex:1 1 0;
+    font-size:9px;
+    padding:7px 6px;
+  }
+
+  .legend{
+    max-width:160px;
+    font-size:8px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
 }
+
 
 .leaflet-container{font:inherit;touch-action:none}
 .leaflet-control-zoom{margin-bottom:6px!important}
-
 @media (max-width:760px){
   .leaflet-control-zoom{margin-right:6px!important}
 }
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
   <div class="brand"><div class="mark">BDA</div><div><h1>NPKL · Premium Corner Sites</h1><div class="sub">Auction decision map · 14 Aug 2026 notification</div></div></div>
-  <button id="mobileFilterToggle" class="mobile-filter-toggle" type="button" aria-expanded="true" aria-controls="siteControls">Filters <span id="filterChevron">⌃</span></button>
-
   <div class="cards">
     <div class="card"><div class="label">Sites mapped</div><div class="value">100</div></div>
     <div class="card"><div class="label">Your FIT sites</div><div class="value green">41</div></div>
     <div class="card"><div class="label">Budget ceiling</div><div class="value gold">₹1 Cr</div></div>
     <div class="card"><div class="label">Bid increment</div><div class="value">₹500 / sq.m</div></div>
   </div>
-
-  <div class="controls" id="siteControls" role="group" aria-label="Site filters">
+  <div class="controls" role="group" aria-label="Site filters">
     <input id="search" placeholder="Search site / block…" aria-label="Search site or block">
     <select id="roundFilter" aria-label="Filter by bidding round">
       <option value="ALL">All Rounds · 100</option>
@@ -653,79 +353,180 @@ button{
     <button id="resetBtn" type="button">Reset</button>
   </div>
 </header>
-
 <div class="main">
   <aside class="sidebar">
     <div class="sidehead"><h2>Site shortlist <span id="countLabel" style="font-weight:700;color:var(--green)">100 / 100</span></h2><p><b>FIT = 102.22–151.20 sq.m</b> (≈1,100–1,628 sqft). Filters apply to both the list and the map. Sl.No 61 is included.</p></div>
     <div class="list" id="list"></div>
   </aside>
-
   <div id="map" tabindex="0"></div>
-
   <div class="maptools" id="maptools" aria-label="Basemap selector">
-    <button data-layer="osm" class="active">OSM classic</button>
+    <button data-layer="dark" class="active">Dark outline</button>
+    <button data-layer="osm">OSM classic</button>
     <button data-layer="esri">Esri satellite</button>
   </div>
-
+  <div class="map-caption">Wheel zoom is anchored to the current map centre · use + / − for precise steps</div>
   <div class="legend"><div style="font-weight:800;margin-bottom:6px">SITE STATUS</div><div class="legend-row"><span class="dot g"></span> FIT · your shortlist</div><div class="legend-row"><span class="dot r"></span> Over-size</div><div class="legend-row"><span class="dot s"></span> Small</div></div>
-
-  <section class="detail" id="detail">
-    <div class="detailhead">
-      <div><h3 id="dsite"></h3><div class="sub" id="dblock"></div></div>
-      <button class="close" id="close">×</button>
-    </div>
-    <div class="detailbody">
-      <div id="dstatus" class="bigstatus"></div>
-      <div class="grid">
-        <div class="metric"><div class="k">Area</div><div class="v" id="darea"></div></div>
-        <div class="metric"><div class="k">Area</div><div class="v" id="dsqft"></div></div>
-        <div class="metric"><div class="k">First valid bid</div><div class="v" id="dmin"></div></div>
-        <div class="metric"><div class="k">Max ₹500-step ≤ ₹1 Cr</div><div class="v" id="dmax"></div></div>
-        <div class="metric"><div class="k">Cost at first valid bid</div><div class="v" id="dcost"></div></div>
-        <div class="metric"><div class="k">Budget remaining</div><div class="v" id="dbudget"></div></div>
-      </div>
-      <div class="heat"><div class="k">BID HEAT · NEXT STEP</div><div class="v" id="dincrement"></div></div>
-      <div class="note" id="dnote"></div>
-      <a id="dmap" class="mapbtn" target="_blank" rel="noopener">Open exact location in Google Maps ↗</a>
-    </div>
-  </section>
+  <section class="detail" id="detail"><div class="detailhead"><div><h3 id="dsite"></h3><div class="sub" id="dblock"></div></div><button class="close" id="close">×</button></div><div class="detailbody"><div id="dstatus" class="bigstatus"></div><div class="grid"><div class="metric"><div class="k">Area</div><div class="v" id="darea"></div></div><div class="metric"><div class="k">Area</div><div class="v" id="dsqft"></div></div><div class="metric"><div class="k">First valid bid</div><div class="v" id="dmin"></div></div><div class="metric"><div class="k">Max ₹500-step ≤ ₹1 Cr</div><div class="v" id="dmax"></div></div><div class="metric"><div class="k">Cost at first valid bid</div><div class="v" id="dcost"></div></div><div class="metric"><div class="k">Budget remaining</div><div class="v" id="dbudget"></div></div></div><div class="heat"><div class="k">BID HEAT · NEXT STEP</div><div class="v" id="dincrement"></div></div><div class="note" id="dnote"></div><a id="dmap" class="mapbtn" target="_blank" rel="noopener">Open exact location in Google Maps ↗</a></div></section>
 </div>
 </div>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-/* Keep the complete original SITES array here unchanged. */
-const SITES=[/* ORIGINAL 100-SITE DATA FROM THE SUPPLIED FILE */];
+const SITES=[{"sl":1,"block":"Block-6, Bheemanakuppe","site":"B6-SC-665","sqm":96.6,"lat":12.90689891,"lng":77.44514829,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90689891,77.44514829&travelmode=driving","sqft":1039.7927399999999,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":6423900.0,"budgetCeilingRate":103519.66873706004,"maxStepBid":103500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90689891,77.44514829&travelmode=driving"},{"sl":2,"block":"Block-6, Bheemanakuppe","site":"B6-SC-685","sqm":173.4,"lat":12.90692999,"lng":77.44527043,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90692999,77.44527043&travelmode=driving","sqft":1866.46026,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11531100.0,"budgetCeilingRate":57670.12687427912,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90692999,77.44527043&travelmode=driving"},{"sl":3,"block":"Block-6, Bheemanakuppe","site":"B6-SC-686","sqm":117.6,"lat":12.90689099,"lng":77.44545913,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90689099,77.44545913&travelmode=driving","sqft":1265.8346399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7820400.0,"budgetCeilingRate":85034.01360544217,"maxStepBid":85000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90689099,77.44545913&travelmode=driving"},{"sl":4,"block":"Block-6, Bheemanakuppe","site":"B6-SC-1214","sqm":201.6,"lat":12.90651406,"lng":77.44722699,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90651406,77.44722699&travelmode=driving","sqft":2170.00224,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":13406400.0,"budgetCeilingRate":49603.17460317461,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90651406,77.44722699&travelmode=driving"},{"sl":5,"block":"Block-6, Bheemanakuppe","site":"B6-SC-1215","sqm":228.6,"lat":12.9065290921,"lng":77.447008213,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9065290921,77.447008213&travelmode=driving","sqft":2460.62754,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":15201900.0,"budgetCeilingRate":43744.53193350831,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9065290921,77.447008213&travelmode=driving"},{"sl":6,"block":"Block-6, Bheemanakuppe","site":"B6-SC-1227/O","sqm":116.4,"lat":12.9066653433,"lng":77.4470379685,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9066653433,77.4470379685&travelmode=driving","sqft":1252.91796,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7740600.0,"budgetCeilingRate":85910.6529209622,"maxStepBid":85500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9066653433,77.4470379685&travelmode=driving"},{"sl":7,"block":"Block-6, Bheemanakuppe","site":"B6-SC-1228","sqm":58.5,"lat":12.90688451,"lng":77.44653772,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90688451,77.44653772&travelmode=driving","sqft":629.68815,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":3890250.0,"budgetCeilingRate":170940.17094017094,"maxStepBid":170500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90688451,77.44653772&travelmode=driving"},{"sl":8,"block":"Block-6, Bheemanakuppe","site":"B6-SC-1253","sqm":63.45,"lat":12.90696953,"lng":77.44654375,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90696953,77.44654375&travelmode=driving","sqft":682.969455,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":4219425.0,"budgetCeilingRate":157604.41292356185,"maxStepBid":157500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90696953,77.44654375&travelmode=driving"},{"sl":9,"block":"Block-6, Bheemanakuppe","site":"B6-SH-3539/D","sqm":246.0,"lat":12.9004221391,"lng":77.4400515797,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9004221391,77.4400515797&travelmode=driving","sqft":2647.9193999999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":16359000.0,"budgetCeilingRate":40650.40650406504,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9004221391,77.4400515797&travelmode=driving"},{"sl":10,"block":"Block-6, Bheemanakuppe","site":"B6-SI-4015","sqm":105.6,"lat":12.9018071759,"lng":77.4399873761,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9018071759,77.4399873761&travelmode=driving","sqft":1136.6678399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7022400.0,"budgetCeilingRate":94696.9696969697,"maxStepBid":94500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9018071759,77.4399873761&travelmode=driving"},{"sl":11,"block":"Block-6, Bheemanakuppe","site":"B6-SI-4052","sqm":214.2,"lat":12.90205202,"lng":77.44001456,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.90205202,77.44001456&travelmode=driving","sqft":2305.62738,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14244300.0,"budgetCeilingRate":46685.34080298786,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.90205202,77.44001456&travelmode=driving"},{"sl":12,"block":"Block-6, Bheemanakuppe","site":"B6-SI-4053","sqm":212.4,"lat":12.9018978212,"lng":77.4398904559,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9018978212,77.4398904559&travelmode=driving","sqft":2286.25236,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14124600.0,"budgetCeilingRate":47080.97928436911,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9018978212,77.4398904559&travelmode=driving"},{"sl":13,"block":"Block-7, Bheemanakuppe","site":"B7-SI-4405","sqm":105.6,"lat":12.9128582496,"lng":77.4419026167,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9128582496,77.4419026167&travelmode=driving","sqft":1136.6678399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7022400.0,"budgetCeilingRate":94696.9696969697,"maxStepBid":94500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9128582496,77.4419026167&travelmode=driving"},{"sl":14,"block":"Block-7, Bheemanakuppe","site":"B7-SI-4406","sqm":105.6,"lat":12.9129589164,"lng":77.4419105548,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9129589164,77.4419105548&travelmode=driving","sqft":1136.6678399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7022400.0,"budgetCeilingRate":94696.9696969697,"maxStepBid":94500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9129589164,77.4419105548&travelmode=driving"},{"sl":15,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-4986","sqm":323.1,"lat":12.915825402,"lng":77.4410662193,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.915825402,77.4410662193&travelmode=driving","sqft":3477.8160900000003,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":21486150.0,"budgetCeilingRate":30950.17022593624,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.915825402,77.4410662193&travelmode=driving"},{"sl":16,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-5158/F","sqm":159.6,"lat":12.9164028539,"lng":77.4408225046,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9164028539,77.4408225046&travelmode=driving","sqft":1717.91844,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10613400.0,"budgetCeilingRate":62656.64160401003,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9164028539,77.4408225046&travelmode=driving"},{"sl":17,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-5685","sqm":52.2,"lat":12.9186361318,"lng":77.4394209674,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9186361318,77.4394209674&travelmode=driving","sqft":561.87558,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":3471300.0,"budgetCeilingRate":191570.88122605364,"maxStepBid":191500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9186361318,77.4394209674&travelmode=driving"},{"sl":18,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-5977","sqm":157.8,"lat":12.9172332269,"lng":77.4437314721,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9172332269,77.4437314721&travelmode=driving","sqft":1698.54342,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10493700.0,"budgetCeilingRate":63371.35614702154,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9172332269,77.4437314721&travelmode=driving"},{"sl":19,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-6220","sqm":105.6,"lat":12.91857691,"lng":77.4436346,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91857691,77.4436346&travelmode=driving","sqft":1136.6678399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7022400.0,"budgetCeilingRate":94696.9696969697,"maxStepBid":94500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91857691,77.4436346&travelmode=driving"},{"sl":20,"block":"Block-7, Bheemanakuppe","site":"B7-SJ-6293","sqm":396.6,"lat":12.91950108,"lng":77.44419673,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91950108,77.44419673&travelmode=driving","sqft":4268.96274,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":26373900.0,"budgetCeilingRate":25214.321734745336,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91950108,77.44419673&travelmode=driving"},{"sl":21,"block":"Block-1, Kannalli","site":"B1-SM-2963","sqm":118.2,"lat":12.9633225376,"lng":77.4645477003,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9633225376,77.4645477003&travelmode=driving","sqft":1272.29298,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7860300.0,"budgetCeilingRate":84602.36886632825,"maxStepBid":84500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9633225376,77.4645477003&travelmode=driving"},{"sl":22,"block":"Block-1, Kannalli","site":"B1-SM-2964","sqm":178.2,"lat":12.9630327049,"lng":77.4645485267,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9630327049,77.4645485267&travelmode=driving","sqft":1918.1269799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11850300.0,"budgetCeilingRate":56116.72278338945,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9630327049,77.4645485267&travelmode=driving"},{"sl":23,"block":"Block-1, Kannalli","site":"B1-SM-3020","sqm":151.2,"lat":12.9630260496,"lng":77.4647596478,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9630260496,77.4647596478&travelmode=driving","sqft":1627.5016799999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":10054800.0,"budgetCeilingRate":66137.56613756614,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9630260496,77.4647596478&travelmode=driving"},{"sl":24,"block":"Block-1, Kannalli","site":"B1-SM-3021","sqm":144.6,"lat":12.963035971,"lng":77.4648407122,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.963035971,77.4648407122&travelmode=driving","sqft":1556.45994,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9615900.0,"budgetCeilingRate":69156.29322268326,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.963035971,77.4648407122&travelmode=driving"},{"sl":25,"block":"Block-1, Kannalli","site":"B1-SM-3042","sqm":129.0,"lat":12.9630208377,"lng":77.4650472624,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9630208377,77.4650472624&travelmode=driving","sqft":1388.5430999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8578500.0,"budgetCeilingRate":77519.37984496124,"maxStepBid":77500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9630208377,77.4650472624&travelmode=driving"},{"sl":26,"block":"Block-1, Kannalli","site":"B1-SM-3043","sqm":123.6,"lat":12.9630235692,"lng":77.465170067,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9630235692,77.465170067&travelmode=driving","sqft":1330.4180399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8219400.0,"budgetCeilingRate":80906.14886731392,"maxStepBid":80500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9630235692,77.465170067&travelmode=driving"},{"sl":27,"block":"Block-1, Kannalli","site":"B1-SM-3066","sqm":111.6,"lat":12.963017563,"lng":77.4653694123,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.963017563,77.4653694123&travelmode=driving","sqft":1201.2512399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7421400.0,"budgetCeilingRate":89605.73476702509,"maxStepBid":89500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.963017563,77.4653694123&travelmode=driving"},{"sl":28,"block":"Block-1, Kannalli","site":"B1-SM-3266","sqm":147.6,"lat":12.9634860825,"lng":77.4647474855,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9634860825,77.4647474855&travelmode=driving","sqft":1588.75164,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9815400.0,"budgetCeilingRate":67750.67750677507,"maxStepBid":67500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9634860825,77.4647474855&travelmode=driving"},{"sl":29,"block":"Block-1, Kannalli","site":"B1-SM-3267","sqm":156.6,"lat":12.9637120963,"lng":77.4647563204,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9637120963,77.4647563204&travelmode=driving","sqft":1685.62674,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10413900.0,"budgetCeilingRate":63856.96040868455,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9637120963,77.4647563204&travelmode=driving"},{"sl":30,"block":"Block-1, Kannalli","site":"B1-SM-3339","sqm":163.8,"lat":12.9649407829,"lng":77.4648888333,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9649407829,77.4648888333&travelmode=driving","sqft":1763.12682,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10892700.0,"budgetCeilingRate":61050.06105006105,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9649407829,77.4648888333&travelmode=driving"},{"sl":31,"block":"Block-5, K-Krishnasagara","site":"B5-SF-1598","sqm":176.4,"lat":12.912773151,"lng":77.45559735,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.912773151,77.45559735&travelmode=driving","sqft":1898.75196,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11730600.0,"budgetCeilingRate":56689.342403628114,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.912773151,77.45559735&travelmode=driving"},{"sl":32,"block":"Block-5, K-Krishnasagara","site":"B5-SF-1618","sqm":129.0,"lat":12.9127607564,"lng":77.4553732039,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9127607564,77.4553732039&travelmode=driving","sqft":1388.5430999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8578500.0,"budgetCeilingRate":77519.37984496124,"maxStepBid":77500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9127607564,77.4553732039&travelmode=driving"},{"sl":33,"block":"Block-5, K-Krishnasagara","site":"B5-SF-1619","sqm":175.2,"lat":12.912766451,"lng":77.4552991761,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.912766451,77.4552991761&travelmode=driving","sqft":1885.8352799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11650800.0,"budgetCeilingRate":57077.62557077626,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.912766451,77.4552991761&travelmode=driving"},{"sl":34,"block":"Block-5, K-Krishnasagara","site":"B5-SF-1641","sqm":144.0,"lat":12.9127594985,"lng":77.4550515349,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9127594985,77.4550515349&travelmode=driving","sqft":1550.0016,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9576000.0,"budgetCeilingRate":69444.44444444444,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9127594985,77.4550515349&travelmode=driving"},{"sl":35,"block":"Block-5, K-Krishnasagara","site":"B5-SF-1642","sqm":188.4,"lat":12.9127526192,"lng":77.4549534419,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9127526192,77.4549534419&travelmode=driving","sqft":2027.91876,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12528600.0,"budgetCeilingRate":53078.55626326964,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9127526192,77.4549534419&travelmode=driving"},{"sl":36,"block":"Block-5, K-Krishnasagara","site":"B5-SF-2174","sqm":117.6,"lat":12.91065963,"lng":77.45529916,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91065963,77.45529916&travelmode=driving","sqft":1265.8346399999998,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7820400.0,"budgetCeilingRate":85034.01360544217,"maxStepBid":85000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91065963,77.45529916&travelmode=driving"},{"sl":37,"block":"Block-5, K-Krishnasagara","site":"B5-SF-2175","sqm":189.0,"lat":12.91063709,"lng":77.4551673,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91063709,77.4551673&travelmode=driving","sqft":2034.3771,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12568500.0,"budgetCeilingRate":52910.05291005291,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91063709,77.4551673&travelmode=driving"},{"sl":38,"block":"Block-5, K-Krishnasagara","site":"B5-SF-2258","sqm":174.6,"lat":12.91057601,"lng":77.45488486,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91057601,77.45488486&travelmode=driving","sqft":1879.3769399999999,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11610900.0,"budgetCeilingRate":57273.768613974804,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91057601,77.45488486&travelmode=driving"},{"sl":39,"block":"Block-5, K-Krishnasagara","site":"B5-SF-2259","sqm":355.2,"lat":12.91055487,"lng":77.45468849,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91055487,77.45468849&travelmode=driving","sqft":3823.3372799999997,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":23620800.0,"budgetCeilingRate":28153.153153153155,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91055487,77.45468849&travelmode=driving"},{"sl":40,"block":"Block-5, K-Krishnasagara","site":"B5-SF-2270/O","sqm":353.65,"lat":12.9105151037,"lng":77.4543891554,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9105151037,77.4543891554&travelmode=driving","sqft":3806.6532349999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":23517725.0,"budgetCeilingRate":28276.544606249117,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9105151037,77.4543891554&travelmode=driving"},{"sl":41,"block":"Block-5, K-Krishnasagara","site":"B5-SG-6118","sqm":266.4,"lat":12.9103734726,"lng":77.4552487275,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9103734726,77.4552487275&travelmode=driving","sqft":2867.50296,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":17715600.0,"budgetCeilingRate":37537.537537537544,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9103734726,77.4552487275&travelmode=driving"},{"sl":42,"block":"Block-5, K-Krishnasagara","site":"B5-SG-6147","sqm":108.0,"lat":12.9103257842,"lng":77.4548772065,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9103257842,77.4548772065&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9103257842,77.4548772065&travelmode=driving"},{"sl":43,"block":"Block-5, K-Krishnasagara","site":"B5-SG-6148","sqm":268.2,"lat":12.9102465821,"lng":77.4546347155,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9102465821,77.4546347155&travelmode=driving","sqft":2886.8779799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":17835300.0,"budgetCeilingRate":37285.60775540642,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9102465821,77.4546347155&travelmode=driving"},{"sl":44,"block":"Block-5, K-Krishnasagara","site":"B5-SG-6169","sqm":187.74,"lat":12.9102223053,"lng":77.4545071977,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9102223053,77.4545071977&travelmode=driving","sqft":2020.814586,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12484710.0,"budgetCeilingRate":53265.153936294875,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9102223053,77.4545071977&travelmode=driving"},{"sl":45,"block":"Block-5, K-Krishnasagara","site":"B5-SG-6119/A","sqm":132.0,"lat":12.9103515201,"lng":77.455005098,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9103515201,77.455005098&travelmode=driving","sqft":1420.8347999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8778000.0,"budgetCeilingRate":75757.57575757576,"maxStepBid":75500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9103515201,77.455005098&travelmode=driving"},{"sl":46,"block":"Block-7, Kommaghatta","site":"B7-SD-2697/J","sqm":355.8,"lat":12.91993214,"lng":77.44456687,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.91993214,77.44456687&travelmode=driving","sqft":3829.79562,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":23660700.0,"budgetCeilingRate":28105.677346824057,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.91993214,77.44456687&travelmode=driving"},{"sl":47,"block":"Block-7, Kommaghatta","site":"B7-SF-6353/D","sqm":212.4,"lat":12.9192404757,"lng":77.4463773035,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9192404757,77.4463773035&travelmode=driving","sqft":2286.25236,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14124600.0,"budgetCeilingRate":47080.97928436911,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9192404757,77.4463773035&travelmode=driving"},{"sl":48,"block":"Block-8, Sulikere","site":"B8-SG-2435","sqm":139.2,"lat":12.9395146759,"lng":77.4384703185,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9395146759,77.4384703185&travelmode=driving","sqft":1498.3348799999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9256800.0,"budgetCeilingRate":71839.08045977012,"maxStepBid":71500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9395146759,77.4384703185&travelmode=driving"},{"sl":49,"block":"Block-8, Sulikere","site":"B8-SG-2452","sqm":144.0,"lat":12.93949197,"lng":77.4382784353,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.93949197,77.4382784353&travelmode=driving","sqft":1550.0016,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9576000.0,"budgetCeilingRate":69444.44444444444,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.93949197,77.4382784353&travelmode=driving"},{"sl":50,"block":"Block-8, Sulikere","site":"B8-SG-2476","sqm":144.0,"lat":12.9394743415,"lng":77.4381678443,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9394743415,77.4381678443&travelmode=driving","sqft":1550.0016,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9576000.0,"budgetCeilingRate":69444.44444444444,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9394743415,77.4381678443&travelmode=driving"},{"sl":51,"block":"Block-8, Sulikere","site":"B8-SG-2478","sqm":180.3,"lat":12.9392731485,"lng":77.4380575587,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9392731485,77.4380575587&travelmode=driving","sqft":1940.73117,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11989950.0,"budgetCeilingRate":55463.11702717692,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9392731485,77.4380575587&travelmode=driving"},{"sl":52,"block":"Block-8, Sulikere","site":"B8-SG-2497","sqm":178.8,"lat":12.9392544254,"lng":77.4378754132,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9392544254,77.4378754132&travelmode=driving","sqft":1924.5853200000001,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11890200.0,"budgetCeilingRate":55928.411633109616,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9392544254,77.4378754132&travelmode=driving"},{"sl":53,"block":"Block-8, Sulikere","site":"B8-SG-2498","sqm":144.0,"lat":12.9394529599,"lng":77.4379893338,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9394529599,77.4379893338&travelmode=driving","sqft":1550.0016,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9576000.0,"budgetCeilingRate":69444.44444444444,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9394529599,77.4379893338&travelmode=driving"},{"sl":54,"block":"Block-8, Sulikere","site":"B8-SG-2523","sqm":144.0,"lat":12.9394353292,"lng":77.4378650609,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9394353292,77.4378650609&travelmode=driving","sqft":1550.0016,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9576000.0,"budgetCeilingRate":69444.44444444444,"maxStepBid":69000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9394353292,77.4378650609&travelmode=driving"},{"sl":55,"block":"Block-8, Sulikere","site":"B8-SG-2524","sqm":216.0,"lat":12.9392420823,"lng":77.4377370401,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9392420823,77.4377370401&travelmode=driving","sqft":2325.0024,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14364000.0,"budgetCeilingRate":46296.2962962963,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9392420823,77.4377370401&travelmode=driving"},{"sl":56,"block":"Block-8, Sulikere","site":"B8-SG-2539","sqm":108.0,"lat":12.9392235944,"lng":77.4374986661,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9392235944,77.4374986661&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9392235944,77.4374986661&travelmode=driving"},{"sl":57,"block":"Block-8, Sulikere","site":"B8-SG-2540","sqm":141.6,"lat":12.9394253008,"lng":77.4376855502,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9394253008,77.4376855502&travelmode=driving","sqft":1524.16824,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9416400.0,"budgetCeilingRate":70621.46892655367,"maxStepBid":70500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9394253008,77.4376855502&travelmode=driving"},{"sl":58,"block":"Block-2, Kenchanapura","site":"B2-SI-1859","sqm":179.4,"lat":12.95417073,"lng":77.45599874,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95417073,77.45599874&travelmode=driving","sqft":1931.04366,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11930100.0,"budgetCeilingRate":55741.36008918617,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95417073,77.45599874&travelmode=driving"},{"sl":59,"block":"Block-2, Kenchanapura","site":"B2-SI-1885","sqm":181.2,"lat":12.95435644,"lng":77.45603213,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95435644,77.45603213&travelmode=driving","sqft":1950.4186799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12049800.0,"budgetCeilingRate":55187.637969094925,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95435644,77.45603213&travelmode=driving"},{"sl":60,"block":"Block-2, Kenchanapura","site":"B2-SI-1886","sqm":181.2,"lat":12.95446382,"lng":77.45605091,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95446382,77.45605091&travelmode=driving","sqft":1950.4186799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12049800.0,"budgetCeilingRate":55187.637969094925,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95446382,77.45605091&travelmode=driving"},{"sl":61,"block":"Block-2, Kenchanapura","site":"B2-SI-1917","sqm":102.22,"lat":12.9547700377,"lng":77.4557964064,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9547700377,77.4557964064&travelmode=driving","sqft":1100.285858,"fit":true,"status":"FIT","startingBid":66500,"startingCost":6797630.0,"budgetCeilingRate":97828.21365681863,"maxStepBid":97500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9547700377,77.4557964064&travelmode=driving"},{"sl":62,"block":"Block-2, Kenchanapura","site":"B2-SI-1834","sqm":114.0,"lat":12.9538810977,"lng":77.455661139,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9538810977,77.455661139&travelmode=driving","sqft":1227.0846,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7581000.0,"budgetCeilingRate":87719.29824561403,"maxStepBid":87500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9538810977,77.455661139&travelmode=driving"},{"sl":63,"block":"Block-2, Kenchanapura","site":"B2-SI-2824","sqm":157.8,"lat":12.9588499023,"lng":77.4568037654,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9588499023,77.4568037654&travelmode=driving","sqft":1698.54342,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10493700.0,"budgetCeilingRate":63371.35614702154,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9588499023,77.4568037654&travelmode=driving"},{"sl":64,"block":"Block-2, Kenchanapura","site":"B2-SI-1843","sqm":113.75,"lat":12.9539873879,"lng":77.4557006852,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9539873879,77.4557006852&travelmode=driving","sqft":1224.393625,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7564375.0,"budgetCeilingRate":87912.08791208791,"maxStepBid":87500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9539873879,77.4557006852&travelmode=driving"},{"sl":65,"block":"Block-2, Kenchanapura","site":"B2-SI-2047","sqm":135.0,"lat":12.9542713068,"lng":77.4578152994,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9542713068,77.4578152994&travelmode=driving","sqft":1453.1264999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8977500.0,"budgetCeilingRate":74074.07407407407,"maxStepBid":74000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9542713068,77.4578152994&travelmode=driving"},{"sl":66,"block":"Block-2, Kenchanapura","site":"B2-SI-2066","sqm":150.6,"lat":12.9546532966,"lng":77.4566338471,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9546532966,77.4566338471&travelmode=driving","sqft":1621.04334,"fit":true,"status":"FIT","startingBid":66500,"startingCost":10014900.0,"budgetCeilingRate":66401.06241699867,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9546532966,77.4566338471&travelmode=driving"},{"sl":67,"block":"Block-2, Kenchanapura","site":"B2-SI-2067","sqm":127.2,"lat":12.954732453,"lng":77.456678668,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.954732453,77.456678668&travelmode=driving","sqft":1369.16808,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8458800.0,"budgetCeilingRate":78616.35220125786,"maxStepBid":78500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.954732453,77.456678668&travelmode=driving"},{"sl":68,"block":"Block-9, Kenchanapura","site":"B9-SA-200","sqm":43.65,"lat":12.9553237911,"lng":77.4413020304,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9553237911,77.4413020304&travelmode=driving","sqft":469.84423499999997,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":2902725.0,"budgetCeilingRate":229095.07445589922,"maxStepBid":229000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9553237911,77.4413020304&travelmode=driving"},{"sl":69,"block":"Block-9, Kenchanapura","site":"B9-SA-238","sqm":58.5,"lat":12.955567106,"lng":77.4413147897,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.955567106,77.4413147897&travelmode=driving","sqft":629.68815,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":3890250.0,"budgetCeilingRate":170940.17094017094,"maxStepBid":170500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.955567106,77.4413147897&travelmode=driving"},{"sl":70,"block":"Block-9, Kenchanapura","site":"B9-SA-275","sqm":67.95,"lat":12.955654484,"lng":77.441312629,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.955654484,77.441312629&travelmode=driving","sqft":731.407005,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":4518675.0,"budgetCeilingRate":147167.03458425312,"maxStepBid":147000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.955654484,77.441312629&travelmode=driving"},{"sl":71,"block":"Block-9, Kenchanapura","site":"B9-SB-863","sqm":214.2,"lat":12.9590042153,"lng":77.4429391318,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9590042153,77.4429391318&travelmode=driving","sqft":2305.62738,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14244300.0,"budgetCeilingRate":46685.34080298786,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9590042153,77.4429391318&travelmode=driving"},{"sl":72,"block":"Block-9, Kenchanapura","site":"B9-SB-864","sqm":214.2,"lat":12.9587854079,"lng":77.4429215634,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9587854079,77.4429215634&travelmode=driving","sqft":2305.62738,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14244300.0,"budgetCeilingRate":46685.34080298786,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9587854079,77.4429215634&travelmode=driving"},{"sl":73,"block":"Block-9, Kenchanapura","site":"B9-SC-2302","sqm":213.6,"lat":12.95264831,"lng":77.44073173,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95264831,77.44073173&travelmode=driving","sqft":2299.1690399999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14204400.0,"budgetCeilingRate":46816.479400749064,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95264831,77.44073173&travelmode=driving"},{"sl":74,"block":"Block-9, Kenchanapura","site":"B9-SC-2303","sqm":213.6,"lat":12.95238462,"lng":77.44071656,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95238462,77.44071656&travelmode=driving","sqft":2299.1690399999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14204400.0,"budgetCeilingRate":46816.479400749064,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95238462,77.44071656&travelmode=driving"},{"sl":75,"block":"Block-9, Kenchanapura","site":"B9-SC-2314","sqm":213.6,"lat":12.95222185,"lng":77.44072244,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95222185,77.44072244&travelmode=driving","sqft":2299.1690399999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14204400.0,"budgetCeilingRate":46816.479400749064,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95222185,77.44072244&travelmode=driving"},{"sl":76,"block":"Block-9, Kenchanapura","site":"B9-SC-2315","sqm":213.01,"lat":12.95195386,"lng":77.44070911,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95195386,77.44070911&travelmode=driving","sqft":2292.818339,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14165165.0,"budgetCeilingRate":46946.152762781094,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95195386,77.44070911&travelmode=driving"},{"sl":77,"block":"Block-9, Kenchanapura","site":"B9-SC-2326","sqm":213.01,"lat":12.95178836,"lng":77.44070581,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.95178836,77.44070581&travelmode=driving","sqft":2292.818339,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":14165165.0,"budgetCeilingRate":46946.152762781094,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.95178836,77.44070581&travelmode=driving"},{"sl":78,"block":"Block-4, Kommaghatta","site":"B4-SH-3566","sqm":96.46,"lat":12.9257617211,"lng":77.4520622711,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9257617211,77.4520622711&travelmode=driving","sqft":1038.285794,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":6414590.0,"budgetCeilingRate":103669.91499066971,"maxStepBid":103500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9257617211,77.4520622711&travelmode=driving"},{"sl":79,"block":"Block-4, Kommaghatta","site":"B4-SH-3765","sqm":132.0,"lat":12.9250089159,"lng":77.4539555026,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9250089159,77.4539555026&travelmode=driving","sqft":1420.8347999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8778000.0,"budgetCeilingRate":75757.57575757576,"maxStepBid":75500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9250089159,77.4539555026&travelmode=driving"},{"sl":80,"block":"Block-4, Kommaghatta","site":"B4-SH-3729","sqm":129.0,"lat":12.9248885721,"lng":77.4539235809,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9248885721,77.4539235809&travelmode=driving","sqft":1388.5430999999999,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8578500.0,"budgetCeilingRate":77519.37984496124,"maxStepBid":77500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9248885721,77.4539235809&travelmode=driving"},{"sl":81,"block":"Block-4, Kommaghatta","site":"B4-SG-3438","sqm":108.0,"lat":12.9247111425,"lng":77.4538701549,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9247111425,77.4538701549&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9247111425,77.4538701549&travelmode=driving"},{"sl":82,"block":"Block-4, Kommaghatta","site":"B4-SG-3477","sqm":108.0,"lat":12.9241556367,"lng":77.4537146483,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9241556367,77.4537146483&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9241556367,77.4537146483&travelmode=driving"},{"sl":83,"block":"Block-4, Kommaghatta","site":"B4-SG-3476","sqm":108.0,"lat":12.9240522797,"lng":77.4536806684,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9240522797,77.4536806684&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9240522797,77.4536806684&travelmode=driving"},{"sl":84,"block":"Block-4, Kommaghatta","site":"B4-SH-3639","sqm":121.2,"lat":12.92194487,"lng":77.4523523,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92194487,77.4523523&travelmode=driving","sqft":1304.58468,"fit":true,"status":"FIT","startingBid":66500,"startingCost":8059800.0,"budgetCeilingRate":82508.2508250825,"maxStepBid":82500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92194487,77.4523523&travelmode=driving"},{"sl":85,"block":"Block-4, Kommaghatta","site":"B4-SG-3415","sqm":108.0,"lat":12.92176401,"lng":77.45235866,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92176401,77.45235866&travelmode=driving","sqft":1162.5012,"fit":true,"status":"FIT","startingBid":66500,"startingCost":7182000.0,"budgetCeilingRate":92592.5925925926,"maxStepBid":92500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92176401,77.45235866&travelmode=driving"},{"sl":86,"block":"Block-4, Kommaghatta","site":"B4-SH-3891","sqm":294.3,"lat":12.92147896,"lng":77.4523718,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92147896,77.4523718&travelmode=driving","sqft":3167.81577,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":19570950.0,"budgetCeilingRate":33978.93306150187,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92147896,77.4523718&travelmode=driving"},{"sl":87,"block":"Block-4, Kommaghatta","site":"B4-SH-3923","sqm":414.9,"lat":12.92131753,"lng":77.4524133,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92131753,77.4524133&travelmode=driving","sqft":4465.94211,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":27590850.0,"budgetCeilingRate":24102.193299590264,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92131753,77.4524133&travelmode=driving"},{"sl":88,"block":"Block-4, Kommaghatta","site":"B4-SH-3924","sqm":362.7,"lat":12.92102356,"lng":77.45243338,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92102356,77.45243338&travelmode=driving","sqft":3904.0665299999996,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":24119550.0,"budgetCeilingRate":27570.995312930798,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92102356,77.45243338&travelmode=driving"},{"sl":89,"block":"Block-4, Kommaghatta","site":"B4-SH-3968","sqm":317.7,"lat":12.92121362,"lng":77.45388159,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92121362,77.45388159&travelmode=driving","sqft":3419.69103,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":21127050.0,"budgetCeilingRate":31476.235442241108,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92121362,77.45388159&travelmode=driving"},{"sl":90,"block":"Block-4, Kommaghatta","site":"B4-SH-3969","sqm":349.2,"lat":12.92102192,"lng":77.45385094,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.92102192,77.45385094&travelmode=driving","sqft":3758.7538799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":23221800.0,"budgetCeilingRate":28636.884306987402,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.92102192,77.45385094&travelmode=driving"},{"sl":91,"block":"Block-3, Ramasandra","site":"B3-SE-1602","sqm":149.4,"lat":12.9408201664,"lng":77.4586751597,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9408201664,77.4586751597&travelmode=driving","sqft":1608.12666,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9935100.0,"budgetCeilingRate":66934.40428380186,"maxStepBid":66500,"maxBudgetCost":9999999.999999998,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9408201664,77.4586751597&travelmode=driving"},{"sl":92,"block":"Block-3, Ramasandra","site":"B3-SE-1603","sqm":137.4,"lat":12.9406575368,"lng":77.4585423126,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9406575368,77.4585423126&travelmode=driving","sqft":1478.95986,"fit":true,"status":"FIT","startingBid":66500,"startingCost":9137100.0,"budgetCeilingRate":72780.20378457059,"maxStepBid":72500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9406575368,77.4585423126&travelmode=driving"},{"sl":93,"block":"Block-3, Ramasandra","site":"B3-SE-1631","sqm":169.2,"lat":12.9405679915,"lng":77.4584773859,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9405679915,77.4584773859&travelmode=driving","sqft":1821.2518799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":11251800.0,"budgetCeilingRate":59101.6548463357,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9405679915,77.4584773859&travelmode=driving"},{"sl":94,"block":"Block-3, Ramasandra","site":"B3-SE-1650","sqm":184.2,"lat":12.9402845558,"lng":77.458318699,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9402845558,77.458318699&travelmode=driving","sqft":1982.7103799999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":12249300.0,"budgetCeilingRate":54288.81650380022,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9402845558,77.458318699&travelmode=driving"},{"sl":95,"block":"Block-3, Ramasandra","site":"B3-SF-1750","sqm":205.5,"lat":12.93855439,"lng":77.45778724,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.93855439,77.45778724&travelmode=driving","sqft":2211.9814499999998,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":13665750.0,"budgetCeilingRate":48661.800486618005,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.93855439,77.45778724&travelmode=driving"},{"sl":96,"block":"Block-3, Ramasandra","site":"B3-SF-1781","sqm":153.0,"lat":12.9384407,"lng":77.45775196,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9384407,77.45775196&travelmode=driving","sqft":1646.8767,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":10174500.0,"budgetCeilingRate":65359.47712418301,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9384407,77.45775196&travelmode=driving"},{"sl":97,"block":"Block-3, Ramasandra","site":"B3-SF-1782","sqm":361.8,"lat":12.938262371,"lng":77.4576359101,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.938262371,77.4576359101&travelmode=driving","sqft":3894.37902,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":24059700.0,"budgetCeilingRate":27639.579878385848,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.938262371,77.4576359101&travelmode=driving"},{"sl":98,"block":"Block-3, Ramasandra","site":"B3-SF-1802","sqm":348.3,"lat":12.93806062,"lng":77.45758815,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.93806062,77.45758815&travelmode=driving","sqft":3749.06637,"fit":false,"status":"OVER SIZE","startingBid":66500,"startingCost":23161950.0,"budgetCeilingRate":28710.881424059717,"maxStepBid":null,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.93806062,77.45758815&travelmode=driving"},{"sl":99,"block":"Block-3, Ramasandra","site":"B3-SF-1902","sqm":104.4,"lat":12.9372342748,"lng":77.4573779276,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.9372342748,77.4573779276&travelmode=driving","sqft":1123.75116,"fit":true,"status":"FIT","startingBid":66500,"startingCost":6942600.0,"budgetCeilingRate":95785.44061302682,"maxStepBid":95500,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.9372342748,77.4573779276&travelmode=driving"},{"sl":100,"block":"Block-3, Ramasandra","site":"B3-SF-1935","sqm":97.8,"lat":12.937138443,"lng":77.4573567776,"maps":"https://www.google.com/maps/dir/?api=1&destination=12.937138443,77.4573567776&travelmode=driving","sqft":1052.70942,"fit":false,"status":"SMALL","startingBid":66500,"startingCost":6503700.0,"budgetCeilingRate":102249.48875255624,"maxStepBid":102000,"maxBudgetCost":10000000,"googleMaps":"https://www.google.com/maps/dir/?api=1&destination=12.937138443,77.4573567776&travelmode=driving"}];
+const BASE=60000, THRESHOLD=66000, INCREMENT=500, MIN_VALID=66500, BUDGET=10000000, SQFT=10.7639, FIT_MIN=102.22, FIT_MAX=151.20;
+const fmt=n=>new Intl.NumberFormat('en-IN',{maximumFractionDigits:0}).format(n);
+const money=n=>`₹${fmt(n)}`;
+const moneyCrL=n=>n>=10000000?`₹${(n/10000000).toFixed(2)} Cr`:`₹${(n/100000).toFixed(2)}L`;
+const bidFmt=n=>`₹${fmt(n)}/sq.m`;
+const bidSqft=n=>`₹${fmt(n/SQFT)}/sq.ft`;
+const maxStepFor=s=>Math.floor((BUDGET/s.sqm)/INCREMENT)*INCREMENT;
+const nextStepCost=s=>s.sqm*INCREMENT;
+const budgetAtFirst=s=>s.sqm*MIN_VALID;
 
-/* Original dashboard initialization/filter/detail logic remains here unchanged. */
+// Sanity assertions for the intended dashboard cohort.
+console.assert(SITES.length===100,'Expected 100 sites');
+console.assert(SITES.filter(s=>s.fit).length===41,'Expected 41 FIT sites');
+console.assert(SITES.some(s=>s.sl===61 && Math.abs(s.sqm-102.22)<.001 && s.fit),'Sl.No 61 must be FIT');
 
-/* Mobile filter toggle */
-const mobileFilterToggle=document.getElementById('mobileFilterToggle');
-const siteControls=document.getElementById('siteControls');
-const filterChevron=document.getElementById('filterChevron');
+const map=L.map('map',{
+  zoomControl:false,preferCanvas:true,zoomSnap:0.5,zoomDelta:0.5,wheelDebounceTime:70,wheelPxPerZoomLevel:100,
+  scrollWheelZoom:false,zoomAnimation:true,fadeAnimation:false,markerZoomAnimation:false
+}).setView([12.935,77.45],13);
+L.control.zoom({position:'bottomright'}).addTo(map);
+L.control.scale({imperial:false,position:'bottomleft'}).addTo(map);
 
-if(mobileFilterToggle && siteControls){
-  mobileFilterToggle.addEventListener('click',()=>{
-    const collapsed=siteControls.classList.toggle('collapsed');
-    mobileFilterToggle.setAttribute('aria-expanded',String(!collapsed));
-    filterChevron.textContent=collapsed?'▾':'⌃';
-    setTimeout(()=>map.invalidateSize(),220);
+const layers={
+  dark:L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}),
+  osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}),
+  esri:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:20,attribution:'Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'})
+};
+layers.osm.addTo(map);
+
+// Centre-anchored wheel zoom: avoids the default cursor-centred jump/pan behaviour.
+map.getContainer().addEventListener('wheel',(e)=>{
+  e.preventDefault(); e.stopPropagation();
+  const dy=e.deltaY;
+  if(Math.abs(dy)<1) return;
+  const current=map.getZoom();
+  const steps=Math.max(-2,Math.min(2,-dy/160));
+  const target=Math.max(map.getMinZoom(),Math.min(map.getMaxZoom(),current+steps));
+  map.setZoom(target,{animate:false});
+},{passive:false});
+
+for(const btn of document.querySelectorAll('#maptools button')){
+  btn.addEventListener('click',()=>{
+    const key=btn.dataset.layer;
+    for(const k of Object.keys(layers)){ if(map.hasLayer(layers[k])) map.removeLayer(layers[k]); }
+    layers[key].addTo(map);
+    document.querySelectorAll('#maptools button').forEach(b=>b.classList.toggle('active',b===btn));
+    setTimeout(()=>map.invalidateSize(),60);
   });
 }
 
-/* Map layers: OSM is the default; Esri satellite is the only alternative. */
-const layers={
-  osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    maxZoom:19,
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
-  }),
-  esri:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
-    maxZoom:20,
-    attribution:'Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
-  })
+const markers=new Map();
+function markerColor(s){return s.fit?'#21b865':(s.sqm<FIT_MIN?'#74808a':'#e04b4b')}
+function tooltip(s){
+  const maxStep=maxStepFor(s);
+  const canStep=maxStep>=MIN_VALID;
+  const maxText=canStep?`${bidFmt(maxStep)} · ${bidSqft(maxStep)}`:`Below first valid step`;
+  
+  const budgetState=budgetAtFirst(s)<=BUDGET?'Within ₹1 Cr':'Already above ₹1 Cr at first valid bid';
+  return `<div class="tt-title">#${s.sl} · ${s.site} · ${s.fit?'FIT':s.status}</div><div class="tt-line">${s.block}</div><div class="tt-line">Area: <span class="tt-strong">${s.sqm.toFixed(2)} sq.m</span> (${s.sqft.toFixed(0)} sq.ft)</div><div class="tt-line">First valid bid: <span class="tt-strong">${bidFmt(MIN_VALID)}</span></div><div class="tt-line">Max ₹500-step ≤ ₹1 Cr: <span class="tt-strong">${maxText}</span></div><div class="tt-line">Bid heat: <span class="tt-heat">+₹500/sq.m = +${money(nextStepCost(s))}</span></div><div class="tt-line">${budgetState}</div>`;
+}
+function addMarker(s){
+  const c=markerColor(s);
+  const m=L.circleMarker([s.lat,s.lng],{radius:s.fit?7:5,weight:s.fit?2:1.5,color:'#ffffff',fillColor:c,fillOpacity:s.fit?.95:.66,opacity:1}).addTo(map);
+  m.bindTooltip(tooltip(s),{sticky:true,direction:'top',offset:[0,-8],opacity:.98});
+  m.on('click',()=>showDetail(s));
+  markers.set(s.sl,m); return m;
+}
+SITES.forEach(addMarker);
+
+function showDetail(s){
+  const maxStep=maxStepFor(s), canStep=maxStep>=MIN_VALID, firstCost=budgetAtFirst(s);
+  document.getElementById('detail').classList.add('show');
+  document.getElementById('dsite').textContent=`#${s.sl} · ${s.site}`;
+  document.getElementById('dblock').textContent=s.block;
+  const st=document.getElementById('dstatus'); st.textContent=s.fit?'● FIT — eligible shortlist':`● ${s.status}`; st.className='bigstatus '+(s.fit?'fit':s.sqm<FIT_MIN?'small':'over');
+  document.getElementById('darea').textContent=`${s.sqm.toFixed(2)} sq.m`;
+  document.getElementById('dsqft').textContent=`${s.sqft.toFixed(0)} sq.ft`;
+  document.getElementById('dmin').textContent=`${bidFmt(MIN_VALID)} · ${bidSqft(MIN_VALID)}`;
+  document.getElementById('dmax').textContent=canStep?`${bidFmt(maxStep)} · ${bidSqft(maxStep)}`:'No valid step ≤ ₹1 Cr';
+  document.getElementById('dcost').textContent=moneyCrL(firstCost);
+  document.getElementById('dbudget').textContent=firstCost<=BUDGET?moneyCrL(BUDGET-firstCost):`Over by ${moneyCrL(firstCost-BUDGET)}`;
+  document.getElementById('dincrement').textContent=`+₹500/sq.m = +${money(nextStepCost(s))} total`;
+  document.getElementById('dnote').textContent=`This is the marginal cost of one BDA bid increment for this site. The first valid reference step is ₹${fmt(MIN_VALID)}/sq.m, derived from the ₹60,000/sq.m base, the >10% rule, and your ₹500/sq.m increment assumption. FIT classification remains your requested area band (${FIT_MIN.toFixed(2)}–${FIT_MAX.toFixed(2)} sq.m); budget fit is shown separately.`;
+  document.getElementById('dmap').href=s.googleMaps;
+}
+document.getElementById('close').onclick=()=>document.getElementById('detail').classList.remove('show');
+
+function getRound(s){ return s.sl<=50 ? '1' : '2'; }
+function getSizeBucket(s){
+  if(s.sqm < FIT_MIN) return 'UNDER_102';
+  if(s.sqm < 120) return '102_120';
+  if(s.sqm < 140) return '120_140';
+  if(s.sqm <= FIT_MAX) return '140_151';
+  return 'OVER_151';
+}
+function currentFilters(){
+  return {
+    q:document.getElementById('search').value.toLowerCase().trim(),
+    round:document.getElementById('roundFilter').value,
+    block:document.getElementById('blockFilter').value,
+    eligibility:document.getElementById('eligibilityFilter').value,
+    size:document.getElementById('sizeFilter').value
+  };
+}
+function matchesFilters(s){
+  const f=currentFilters();
+  const text=(s.site+' '+s.block).toLowerCase();
+  return (!f.q || text.includes(f.q))
+    && (f.round==='ALL' || getRound(s)===f.round)
+    && (f.block==='ALL' || s.block===f.block)
+    && (f.eligibility==='ALL' || s.status===f.eligibility)
+    && (f.size==='ALL' || getSizeBucket(s)===f.size);
+}
+function applyFilters(){
+  const visible=SITES.filter(matchesFilters);
+  const visibleSet=new Set(visible.map(s=>s.sl));
+  for(const s of SITES){
+    const m=markers.get(s.sl), on=visibleSet.has(s.sl);
+    m.setStyle({opacity:on?1:0,fillOpacity:on?(s.fit?.95:.66):0});
+  }
+  return visible;
+}
+function renderList(){
+  const visible=applyFilters();
+  const list=document.getElementById('list'); list.innerHTML='';
+  document.getElementById('countLabel').textContent=`${visible.length} / 100`;
+  visible.sort((a,b)=>a.sqm-b.sqm).forEach(s=>{
+    const div=document.createElement('div'); div.className='item '+(s.fit?'fit':'');
+    const st=s.fit?'fit':s.sqm<FIT_MIN?'small':'over';
+    const first=budgetAtFirst(s), max=maxStepFor(s);
+    const maxText=max>=MIN_VALID?`Max ${bidFmt(max)}`:'No valid step ≤ ₹1 Cr';
+    div.innerHTML=`<div class="itemrow"><span class="site">#${s.sl} · ${s.site}</span><span class="status ${st}">${s.status}</span></div><div class="meta">${s.block} · ${s.sqm.toFixed(2)} sq.m · ${s.sqft.toFixed(0)} sq.ft<br>Round ${getRound(s)} · First valid: ${moneyCrL(first)} · ${maxText}<br><b style="color:#704900">Bid heat: +₹${fmt(nextStepCost(s))} per +₹500/sq.m</b></div>`;
+    div.onclick=()=>{showDetail(s);map.setView([s.lat,s.lng],16,{animate:true});setTimeout(()=>markers.get(s.sl).openTooltip(),250);};
+    list.appendChild(div);
+  });
+}
+['search','roundFilter','blockFilter','eligibilityFilter','sizeFilter'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener(el.tagName==='INPUT'?'input':'change',renderList);
+});
+document.getElementById('resetBtn').onclick=()=>{
+  document.getElementById('search').value='';
+  document.getElementById('roundFilter').value='ALL';
+  document.getElementById('blockFilter').value='ALL';
+  document.getElementById('eligibilityFilter').value='ALL';
+  document.getElementById('sizeFilter').value='ALL';
+  renderList();
 };
 
-layers.osm.addTo(map);
+// Re-centre on all 100 sites and fit the map once tiles are ready.
+const bounds=L.latLngBounds(SITES.map(s=>[s.lat,s.lng]));
+map.fitBounds(bounds.pad(.07),{padding:[12,12],maxZoom:13.5});
+window.addEventListener('resize',()=>map.invalidateSize());
+setTimeout(()=>map.invalidateSize(),250);
+renderList();
 </script>
 </body>
 </html>
