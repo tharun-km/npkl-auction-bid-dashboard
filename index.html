@@ -60,20 +60,6 @@
 
 input,select,button{font:inherit}
 
-.filters-collapsible{display:contents}
-.filterstoggle{display:none}
-.fitonly{
-  border:1px solid var(--green);
-  color:var(--green);
-  background:var(--green-bg);
-  font-weight:800;
-  white-space:nowrap;
-  flex:0 0 auto;
-}
-.fitonly:hover{background:#ddf3e6}
-.fitonly.active{background:var(--green);color:#fff}
-.fitonly.active:hover{background:#127a40}
-
 input,select{
   background:#fff;
   color:var(--text);
@@ -137,22 +123,18 @@ button{
   .card{min-width:0}
   .controls{
     width:100%;
-    display:flex;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:minmax(180px,1.4fr) repeat(4,minmax(130px,1fr)) auto;
     gap:6px;
     align-items:stretch;
   }
   .controls input,
   .controls select,
   .controls button{
-    width:auto;
+    width:100%;
     min-width:0;
     max-width:none;
   }
-  #search{flex:1 1 100%}
-  #fitOnlyBtn,#filtersToggleBtn{flex:1 1 calc(50% - 3px)}
-  .filters-collapsible select,
-  .filters-collapsible button{flex:1 1 calc(50% - 3px)}
   .main{grid-template-columns:280px 1fr}
   .legend,.map-caption{left:296px}
 }
@@ -198,53 +180,24 @@ button{
   .label{font-size:7.5px}
   .value{font-size:15px}
 
-  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .cards .card:nth-child(4){display:none}
-
   .controls{
     width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
     align-items:stretch;
   }
-  #search{
-    flex:1 1 100%;
+  .controls input{
+    grid-column:1 / -1;
     width:100%;
     min-width:0;
-    padding:11px 12px;
-    font-size:14px;
   }
-  #fitOnlyBtn,#filtersToggleBtn{
-    flex:1 1 calc(50% - 3.5px);
-    min-height:44px;
-    font-size:12.5px;
-    font-weight:800;
-  }
-  .filterstoggle{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .filterstoggle[aria-expanded="true"]{background:#edf4f8;border-color:#a9bbc7}
-
-  .filters-collapsible{
-    display:none;
-    flex:1 1 100%;
-    flex-wrap:wrap;
-    gap:6px;
+  .controls select,
+  .controls button{
     width:100%;
-  }
-  .filters-collapsible.open{display:flex}
-  .filters-collapsible select,
-  .filters-collapsible button{
-    flex:1 1 calc(50% - 3px);
-    width:auto;
     min-width:0;
     max-width:none;
-    min-height:42px;
   }
-  #resetBtn{flex:1 1 100%}
 
   .main{
     width:100%;
@@ -256,8 +209,8 @@ button{
 
   #map{
     width:100%;
-    height:max(68vh,420px);
-    min-height:420px;
+    height:calc(100dvh - 270px);
+    min-height:480px;
   }
 
   .sidebar{
@@ -267,85 +220,40 @@ button{
   .maptools{
     top:10px;
     right:10px;
-    left:10px;
-    justify-content:space-between;
-    max-width:none;
-    overflow-x:visible;
-    padding:3px;
-    border-radius:12px;
+    max-width:calc(100% - 20px);
+    overflow-x:auto;
   }
   .maptools button{
     white-space:nowrap;
-    flex:1 1 0;
-    min-height:42px;
-    padding:0 6px;
-    font-size:10.5px;
-    border-radius:9px;
+    flex:0 0 auto;
   }
 
   .legend{
     left:10px;
     bottom:10px;
-    max-width:150px;
-    padding:7px 9px;
-    font-size:8.5px;
+    max-width:180px;
   }
 
   .map-caption{
-    display:none;
+    left:10px;
+    top:10px;
+    transform:translateY(48px);
+    max-width:calc(100% - 20px);
+    font-size:8px;
   }
 
-  .leaflet-control-zoom a{
-    width:42px!important;
-    height:42px!important;
-    line-height:42px!important;
-    font-size:19px!important;
-  }
-  .leaflet-control-scale{display:none}
-
-  /* Bottom-sheet detail panel */
   .detail{
-    left:0;
-    right:0;
-    top:auto;
-    bottom:0;
-    width:100%;
+    left:10px;
+    right:10px;
+    top:10px;
+    width:auto;
     max-width:none;
-    max-height:78dvh;
+    max-height:calc(100dvh - 20px);
     overflow:auto;
-    border-radius:16px 16px 0 0;
-    border-bottom:0;
-    box-shadow:0 -10px 40px rgba(31,49,62,.22);
-    transform:translateY(100%);
-    transition:transform .22s ease;
   }
-  .detail.show{
-    display:block;
-    transform:translateY(0);
-  }
-  .detailhead{
-    position:sticky;
-    top:0;
-    background:rgba(255,255,255,.98);
-    border-radius:16px 16px 0 0;
-    padding:10px 14px 8px;
-  }
-  .detailhead:before{
-    content:"";
-    position:absolute;
-    top:7px;
-    left:50%;
-    transform:translateX(-50%);
-    width:36px;
-    height:4px;
-    border-radius:3px;
-    background:var(--line);
-  }
-  .close{font-size:22px;padding:2px 6px}
 
-  .detailbody{padding:11px 14px 16px}
+  .detailbody{padding:11px 12px}
   .grid{grid-template-columns:1fr 1fr;gap:6px}
-  .mapbtn{padding:12px;font-size:11px}
 }
 
 @media (max-width:420px){
@@ -354,14 +262,29 @@ button{
   .label{font-size:7px}
   .value{font-size:14px}
 
+  .controls{
+    grid-template-columns:1fr;
+  }
+  .controls input{
+    grid-column:auto;
+  }
+
   #map{
-    height:max(62vh,400px);
-    min-height:400px;
+    height:calc(100dvh - 360px);
+    min-height:440px;
+  }
+
+  .maptools{
+    left:10px;
+    right:10px;
+    width:auto;
+    justify-content:space-between;
   }
 
   .maptools button{
+    flex:1 1 0;
     font-size:9px;
-    padding:0 4px;
+    padding:7px 6px;
   }
 
   .legend{
@@ -395,43 +318,39 @@ button{
   </div>
   <div class="controls" role="group" aria-label="Site filters">
     <input id="search" placeholder="Search site / block…" aria-label="Search site or block">
-    <button id="fitOnlyBtn" type="button" class="fitonly" aria-pressed="false">FIT ONLY · <span id="fitCount">41</span></button>
-    <button id="filtersToggleBtn" type="button" class="filterstoggle" aria-expanded="false" aria-controls="filtersPanel">Filters ▾</button>
-    <div class="filters-collapsible" id="filtersPanel">
-      <select id="roundFilter" aria-label="Filter by bidding round">
-        <option value="ALL">All Rounds · 100</option>
-        <option value="1">Round 1 · Sites 1–50 · 7–8 Sep</option>
-        <option value="2">Round 2 · Sites 51–100 · 8–9 Sep</option>
-      </select>
-      <select id="blockFilter" aria-label="Filter by block">
-        <option value="ALL">All Blocks</option>
-        <option value="Block-6, Bheemanakuppe">Bheemanakuppe · B6</option>
-        <option value="Block-7, Bheemanakuppe">Bheemanakuppe · B7</option>
-        <option value="Block-1, Kannalli">Kannalli · B1</option>
-        <option value="Block-5, K-Krishnasagara">K-Krishnasagara · B5</option>
-        <option value="Block-7, Kommaghatta">Kommaghatta · B7</option>
-        <option value="Block-8, Sulikere">Sulikere · B8</option>
-        <option value="Block-2, Kenchanapura">Kenchanapura · B2</option>
-        <option value="Block-9, Kenchanapura">Kenchanapura · B9</option>
-        <option value="Block-4, Kommaghatta">Kommaghatta · B4</option>
-        <option value="Block-3, Ramasandra">Ramasandra · B3</option>
-      </select>
-      <select id="eligibilityFilter" aria-label="Filter by eligibility">
-        <option value="ALL">All Statuses</option>
-        <option value="FIT">FIT · 41</option>
-        <option value="SMALL">Below FIT band</option>
-        <option value="OVER SIZE">Above FIT band</option>
-      </select>
-      <select id="sizeFilter" aria-label="Filter by site size">
-        <option value="ALL">All Sizes</option>
-        <option value="UNDER_102">Under 102.22 sq.m · &lt; 1,100 sqft</option>
-        <option value="102_120">102.22–120 sq.m · 1,100–1,292 sqft</option>
-        <option value="120_140">120–140 sq.m · 1,292–1,507 sqft</option>
-        <option value="140_151">140–151.20 sq.m · 1,507–1,628 sqft</option>
-        <option value="OVER_151">Over 151.20 sq.m · &gt; 1,628 sqft</option>
-      </select>
-      <button id="resetBtn" type="button">Reset</button>
-    </div>
+    <select id="roundFilter" aria-label="Filter by bidding round">
+      <option value="ALL">All Rounds · 100</option>
+      <option value="1">Round 1 · Sites 1–50 · 7–8 Sep</option>
+      <option value="2">Round 2 · Sites 51–100 · 8–9 Sep</option>
+    </select>
+    <select id="blockFilter" aria-label="Filter by block">
+      <option value="ALL">All Blocks</option>
+      <option value="Block-6, Bheemanakuppe">Bheemanakuppe · B6</option>
+      <option value="Block-7, Bheemanakuppe">Bheemanakuppe · B7</option>
+      <option value="Block-1, Kannalli">Kannalli · B1</option>
+      <option value="Block-5, K-Krishnasagara">K-Krishnasagara · B5</option>
+      <option value="Block-7, Kommaghatta">Kommaghatta · B7</option>
+      <option value="Block-8, Sulikere">Sulikere · B8</option>
+      <option value="Block-2, Kenchanapura">Kenchanapura · B2</option>
+      <option value="Block-9, Kenchanapura">Kenchanapura · B9</option>
+      <option value="Block-4, Kommaghatta">Kommaghatta · B4</option>
+      <option value="Block-3, Ramasandra">Ramasandra · B3</option>
+    </select>
+    <select id="eligibilityFilter" aria-label="Filter by eligibility">
+      <option value="ALL">All Statuses</option>
+      <option value="FIT">FIT · 41</option>
+      <option value="SMALL">Below FIT band</option>
+      <option value="OVER SIZE">Above FIT band</option>
+    </select>
+    <select id="sizeFilter" aria-label="Filter by site size">
+      <option value="ALL">All Sizes</option>
+      <option value="UNDER_102">Under 102.22 sq.m · &lt; 1,100 sqft</option>
+      <option value="102_120">102.22–120 sq.m · 1,100–1,292 sqft</option>
+      <option value="120_140">120–140 sq.m · 1,292–1,507 sqft</option>
+      <option value="140_151">140–151.20 sq.m · 1,507–1,628 sqft</option>
+      <option value="OVER_151">Over 151.20 sq.m · &gt; 1,628 sqft</option>
+    </select>
+    <button id="resetBtn" type="button">Reset</button>
   </div>
 </header>
 <div class="main">
@@ -439,7 +358,7 @@ button{
     <div class="sidehead"><h2>Site shortlist <span id="countLabel" style="font-weight:700;color:var(--green)">100 / 100</span></h2><p><b>FIT = 102.22–151.20 sq.m</b> (≈1,100–1,628 sqft). Filters apply to both the list and the map. Sl.No 61 is included.</p></div>
     <div class="list" id="list"></div>
   </aside>
-  <div id="map" tabindex="0" role="application" aria-label="Auction sites map"></div>
+  <div id="map" tabindex="0"></div>
   <div class="maptools" id="maptools" aria-label="Basemap selector">
     <button data-layer="dark" class="active">Dark outline</button>
     <button data-layer="osm">OSM classic</button>
@@ -447,7 +366,7 @@ button{
   </div>
   <div class="map-caption">Wheel zoom is anchored to the current map centre · use + / − for precise steps</div>
   <div class="legend"><div style="font-weight:800;margin-bottom:6px">SITE STATUS</div><div class="legend-row"><span class="dot g"></span> FIT · your shortlist</div><div class="legend-row"><span class="dot r"></span> Over-size</div><div class="legend-row"><span class="dot s"></span> Small</div></div>
-  <section class="detail" id="detail" role="dialog" aria-modal="false" aria-labelledby="dsite"><div class="detailhead"><div><h3 id="dsite"></h3><div class="sub" id="dblock"></div></div><button class="close" id="close" aria-label="Close site detail">×</button></div><div class="detailbody"><div id="dstatus" class="bigstatus"></div><div class="grid"><div class="metric"><div class="k">Area (sq.m)</div><div class="v" id="darea"></div></div><div class="metric"><div class="k">Area (sq.ft)</div><div class="v" id="dsqft"></div></div><div class="metric"><div class="k">First valid bid</div><div class="v" id="dmin"></div></div><div class="metric"><div class="k">Max ₹500-step ≤ ₹1 Cr</div><div class="v" id="dmax"></div></div><div class="metric"><div class="k">Cost at first valid bid</div><div class="v" id="dcost"></div></div><div class="metric"><div class="k">Budget remaining</div><div class="v" id="dbudget"></div></div></div><div class="heat"><div class="k">BID HEAT · NEXT STEP</div><div class="v" id="dincrement"></div></div><div class="note" id="dnote"></div><a id="dmap" class="mapbtn" target="_blank" rel="noopener">Open exact location in Google Maps ↗</a></div></section>
+  <section class="detail" id="detail"><div class="detailhead"><div><h3 id="dsite"></h3><div class="sub" id="dblock"></div></div><button class="close" id="close">×</button></div><div class="detailbody"><div id="dstatus" class="bigstatus"></div><div class="grid"><div class="metric"><div class="k">Area</div><div class="v" id="darea"></div></div><div class="metric"><div class="k">Area</div><div class="v" id="dsqft"></div></div><div class="metric"><div class="k">First valid bid</div><div class="v" id="dmin"></div></div><div class="metric"><div class="k">Max ₹500-step ≤ ₹1 Cr</div><div class="v" id="dmax"></div></div><div class="metric"><div class="k">Cost at first valid bid</div><div class="v" id="dcost"></div></div><div class="metric"><div class="k">Budget remaining</div><div class="v" id="dbudget"></div></div></div><div class="heat"><div class="k">BID HEAT · NEXT STEP</div><div class="v" id="dincrement"></div></div><div class="note" id="dnote"></div><a id="dmap" class="mapbtn" target="_blank" rel="noopener">Open exact location in Google Maps ↗</a></div></section>
 </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -548,7 +467,6 @@ function getSizeBucket(s){
   if(s.sqm <= FIT_MAX) return '140_151';
   return 'OVER_151';
 }
-let fitOnly=false;
 function currentFilters(){
   return {
     q:document.getElementById('search').value.toLowerCase().trim(),
@@ -562,7 +480,6 @@ function matchesFilters(s){
   const f=currentFilters();
   const text=(s.site+' '+s.block).toLowerCase();
   return (!f.q || text.includes(f.q))
-    && (!fitOnly || s.fit)
     && (f.round==='ALL' || getRound(s)===f.round)
     && (f.block==='ALL' || s.block===f.block)
     && (f.eligibility==='ALL' || s.status===f.eligibility)
@@ -601,30 +518,8 @@ document.getElementById('resetBtn').onclick=()=>{
   document.getElementById('blockFilter').value='ALL';
   document.getElementById('eligibilityFilter').value='ALL';
   document.getElementById('sizeFilter').value='ALL';
-  fitOnly=false;
-  document.getElementById('fitOnlyBtn').classList.remove('active');
-  document.getElementById('fitOnlyBtn').setAttribute('aria-pressed','false');
   renderList();
 };
-
-  
-const fitOnlyBtn=document.getElementById('fitOnlyBtn');
-fitOnlyBtn.addEventListener('click',()=>{
-  fitOnly=!fitOnly;
-  fitOnlyBtn.classList.toggle('active',fitOnly);
-  fitOnlyBtn.setAttribute('aria-pressed',String(fitOnly));
-  renderList();
-});
-document.getElementById('fitCount').textContent=SITES.filter(s=>s.fit).length;
-
-const filtersToggleBtn=document.getElementById('filtersToggleBtn');
-const filtersPanel=document.getElementById('filtersPanel');
-filtersToggleBtn.addEventListener('click',()=>{
-  const open=filtersPanel.classList.toggle('open');
-  filtersToggleBtn.setAttribute('aria-expanded',String(open));
-  filtersToggleBtn.textContent=open?'Filters ▴':'Filters ▾';
-  setTimeout(()=>map.invalidateSize(),240);
-});
 
 // Re-centre on all 100 sites and fit the map once tiles are ready.
 const bounds=L.latLngBounds(SITES.map(s=>[s.lat,s.lng]));
