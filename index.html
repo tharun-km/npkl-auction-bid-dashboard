@@ -470,7 +470,7 @@ button{
   </aside>
   <div id="map" tabindex="0" role="application" aria-label="Auction sites map"></div>
   <div class="maptools" id="maptools" aria-label="Basemap selector">
-    <button data-layer="dark">Dark outline</button>
+    <button data-layer="dark">OSM classic</button>
     <button data-layer="osm" class="active">Voyager</button>
     <button data-layer="esri">Esri satellite</button>
   </div>
@@ -506,21 +506,30 @@ L.control.zoom({position:'bottomright'}).addTo(map);
 L.control.scale({imperial:false,position:'bottomleft'}).addTo(map);
 
 const layers={
-  dark:L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}),
+  dark:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}),
   osm:L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}),
   esri:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:20,attribution:'Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'})
 };
 layers.osm.addTo(map);
 
 // Centre-anchored wheel zoom: avoids the default cursor-centred jump/pan behaviour.
+// Wheel/trackpad events are accumulated over a short window and applied as one
+// animated zoom, instead of calling setZoom on every tick (which felt jumpy/flippant
+// on trackpads and precision mice that fire many small deltaY events in a burst).
+let wheelDelta=0, wheelTimer=null;
+const WHEEL_WINDOW=45;
 map.getContainer().addEventListener('wheel',(e)=>{
   e.preventDefault(); e.stopPropagation();
-  const dy=e.deltaY;
-  if(Math.abs(dy)<1) return;
-  const current=map.getZoom();
-  const steps=Math.max(-2,Math.min(2,-dy/160));
-  const target=Math.max(map.getMinZoom(),Math.min(map.getMaxZoom(),current+steps));
-  map.setZoom(target,{animate:false});
+  wheelDelta+=e.deltaY;
+  if(wheelTimer) return;
+  wheelTimer=setTimeout(()=>{
+    const current=map.getZoom();
+    const steps=Math.max(-2.5,Math.min(2.5,-wheelDelta/160));
+    const target=Math.max(map.getMinZoom(),Math.min(map.getMaxZoom(),current+steps));
+    map.setZoomAround(map.getCenter(),target,{animate:true});
+    wheelDelta=0;
+    wheelTimer=null;
+  },WHEEL_WINDOW);
 },{passive:false});
 
 for(const btn of document.querySelectorAll('#maptools button')){
